@@ -136,15 +136,30 @@ public class DynamicStringListTest {
         assertEquals(1, list.size());
     }
 
-
     @Test
     public void testSize() {
         DynamicStringList list = new DynamicStringList();
+        assertEquals(0, list.size());
 
         list.add("A");
-        list.add("B");
+        assertEquals(1, list.size());
 
+        list.add("B");
         assertEquals(2, list.size());
+
+        list.remove(0);
+        assertEquals(1, list.size());
+    }
+    
+    @Test
+    public void testCapacity() {
+        DynamicStringList list = new DynamicStringList();  
+        int initialCapacity = list.capacity();
+        for (int i = 0; i < initialCapacity + 1; i++) {
+            list.add("A");
+        }
+        assertTrue(list.capacity() > initialCapacity);
     }
 
 }
+ 

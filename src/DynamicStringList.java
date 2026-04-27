@@ -57,4 +57,11 @@ public class DynamicStringList implements StringList{
         size--;
         return removed;
     }
+
+// size()
+@Override
+public int size() {
+    return size;
 }
+
+ 

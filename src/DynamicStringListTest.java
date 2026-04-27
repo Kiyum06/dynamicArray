@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class DynamicStringListTest {
 
+    // get() tests
     @Test
     void testGetValidIndex() {
         DynamicStringList list = new DynamicStringList();
@@ -38,4 +39,28 @@ public class DynamicStringListTest {
             list.get(5);
         });
     }
+
+
+    // set() tests
+    @Test
+    public void testSetValidIndex() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("A");
+        list.add("B");
+
+        list.set(1, "C");
+
+        assertEquals("C", list.get(1));
+    }
+
+    @Test
+    public void testSetInvalidIndex() {
+        DynamicStringList list = new DynamicStringList();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            list.set(0, "X");
+        });
+    }
+
+    
 }

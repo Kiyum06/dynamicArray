@@ -6,7 +6,7 @@ public class DynamicStringList implements StringList{
         data = new String[10]; 
         size = 0;
     }
-
+    // get() interface
     @Override
     public String get(int index) {
         if (index < 0 || index >= size) {
@@ -14,4 +14,15 @@ public class DynamicStringList implements StringList{
         }
         return data[index];
     }
+
+    //set() interface
+    @Override
+    public void set(int index, String value) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        data[index] = value;
+    }
+
+    
 }

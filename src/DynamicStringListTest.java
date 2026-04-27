@@ -62,5 +62,40 @@ public class DynamicStringListTest {
         });
     }
 
+    // add() tests
+    @Test
+    public void testAddSingleElement() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("A");
+
+        assertEquals(1, list.size());
+        assertEquals("A", list.get(0));
+    }
+
+    @Test
+    public void testAddMultipleElements() {
+        DynamicStringList list = new DynamicStringList();
+
+        list.add("A");
+        list.add("B");
+        list.add("C");
+
+        assertEquals(3, list.size());
+        assertEquals("C", list.get(2));
+    }
+
+    @Test
+    public void testAddTriggersResize() {
+        DynamicStringList list = new DynamicStringList();
+
+        for (int i = 0; i < 15; i++) {
+            list.add("X");
+        }
+
+        assertEquals(15, list.size());
+        assertTrue(list.capacity() >= 15);
+    }
+
+
     
 }

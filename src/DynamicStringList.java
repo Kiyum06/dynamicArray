@@ -24,5 +24,18 @@ public class DynamicStringList implements StringList{
         data[index] = value;
     }
 
-    
+    // add() 
+    @Override
+    public void add(String value) {
+        if (size == data.length) {
+            String[] newData = new String[data.length * 2];         
+            for (int i = 0; i < size; i++) {
+                newData[i] = data[i];
+            } 
+            data = newData;
+        }
+
+        data[size] = value;
+        size++;
+    }
 }

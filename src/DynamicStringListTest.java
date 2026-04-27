@@ -97,5 +97,42 @@ public class DynamicStringListTest {
     }
 
 
-    
+    // remove tests
+    @Test
+    public void testRemoveMiddle() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("A");
+        list.add("B");
+        list.add("C");
+
+        String removed = list.remove(1);
+
+        assertEquals("B", removed);
+        assertEquals(2, list.size());
+        assertEquals("C", list.get(1));
+    }
+
+    @Test
+    public void testRemoveFirst() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("A");
+        list.add("B");
+
+        list.remove(0);
+
+        assertEquals("B", list.get(0));
+    }
+
+
+    @Test
+    public void testRemoveLast() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("A");
+        list.add("B");
+
+        String removed = list.remove(1);
+
+        assertEquals("B", removed);
+        assertEquals(1, list.size());
+    }
 }

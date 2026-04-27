@@ -65,6 +65,7 @@ public int size() {
 }
 
 @Override
+// capacity()
 public int capacity() {
     return data.length;
 }

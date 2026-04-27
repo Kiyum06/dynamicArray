@@ -135,4 +135,16 @@ public class DynamicStringListTest {
         assertEquals("B", removed);
         assertEquals(1, list.size());
     }
+
+
+    @Test
+    public void testSize() {
+        DynamicStringList list = new DynamicStringList();
+
+        list.add("A");
+        list.add("B");
+
+        assertEquals(2, list.size());
+    }
+
 }
